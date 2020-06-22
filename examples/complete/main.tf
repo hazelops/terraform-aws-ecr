@@ -1,0 +1,9 @@
+module "ecr" {
+  source = "../../terraform/ecr-module"
+  name = "<name-of-ecr-repository>"
+  enabled = true
+  pull_arns = [<list-of-pull-only-arns>]
+  push_arns = [<list-of-push-pull-arns>]
+  tag_prefix_list = [<tag-name>]
+  max_untagged_image_count = 3
+  max_tagged_image_count = 5
