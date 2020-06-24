@@ -1,6 +1,6 @@
 module "ecr" {
-  source = "../../terraform/ecr-module"
-  name = "<name-of-ecr-repository>"
-  pull_arns = [<list-of-pull-only-arns>]
-  push_arns = [<list-of-push-pull-arns>]
-  tag_prefix_list = [<tag-name>]
+  source = "hazelops/ecr/aws"
+  version = "~> 1.0"
+  name = "test"
+  push_arns = ["arn:aws:iam::123454321:user/elvis"]
+}

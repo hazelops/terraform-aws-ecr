@@ -24,19 +24,11 @@ variable "ecr_policy" {
   description = "Optional ECR policy to be applied."
 }
 
-variable "tag_prefix_list" {
-  type        = list(string)
-  description = "List of image tag prefixes on which to take action with lifecycle policy."
+variable "max_any_image_count" {
+  default = 100
+  type = number
+  description = "Maximum number of images that you want to retain in repository."
 }
 
-variable "max_untagged_image_count" {
-  default     = 1
-  type        = number
-  description = "Maximum number of untagged images that you want to retain in repository."
-}
 
-variable "max_tagged_image_count" {
-  default     = 20
-  type        = number
-  description = "Maximum number of tagged images that you want to retain in repository."
-}
+

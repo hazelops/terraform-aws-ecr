@@ -51,7 +51,6 @@ data "aws_iam_policy_document" "this" {
   }
 }
 
-#   Create images lifecycle policy
 resource "aws_ecr_lifecycle_policy" "default" {
   count      = var.enabled ? 1 : 0
   repository = aws_ecr_repository.this[0].name
@@ -60,29 +59,16 @@ resource "aws_ecr_lifecycle_policy" "default" {
     rules = [
       {
         rulePriority = 1
-        description  = "Keep last ${var.max_untagged_image_count} untagged images"
+        description  = "Keep last ${var.max_any_image_count} images"
         selection = {
-          tagStatus   = "untagged"
+          tagStatus   = "any"
           countType   = "imageCountMoreThan"
-          countNumber = var.max_untagged_image_count
+          countNumber = var.max_any_image_count
         }
         action = {
           type = "expire"
         }
       },
-      {
-        rulePriority = 2
-        description  = "Keep last ${var.max_tagged_image_count} tagged images"
-        selection = {
-          tagStatus     = "tagged"
-          tagPrefixList = var.tag_prefix_list
-          countType     = "imageCountMoreThan"
-          countNumber   = var.max_tagged_image_count
-        }
-        action = {
-          type = "expire"
-        }
-      },
-    ]
+      ]
   })
 }

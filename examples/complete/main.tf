@@ -1,9 +1,9 @@
 module "ecr" {
-  source = "../../terraform/ecr-module"
-  name = "<name-of-ecr-repository>"
+  source = "hazelops/ecr/aws"
+  version = "~> 1.0"
+  name = "test"
   enabled = true
-  pull_arns = [<list-of-pull-only-arns>]
-  push_arns = [<list-of-push-pull-arns>]
-  tag_prefix_list = [<tag-name>]
-  max_untagged_image_count = 3
-  max_tagged_image_count = 5
+  pull_arns = ["arn:aws:iam::1234567890:user/johnd"]
+  push_arns = ["arn:aws:iam::123454321:user/elvis"]
+  max_any_image_count = 3
+}
