@@ -84,3 +84,5 @@ See _examples_ folder.
 TBD
 
 Inspired by modules from [justinm](https://registry.terraform.io/modules/justinm) and [tmknom](https://registry.terraform.io/modules/tmknom)
+
+Maintainer: [Dmitry Borisov](https://github.com/kobrikx)
