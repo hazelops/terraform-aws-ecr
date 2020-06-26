@@ -4,7 +4,7 @@ resource "aws_ecr_repository" "this" {
 }
 
 resource "aws_ecr_repository_policy" "this" {
-  count      = var.enabled ? 1 : 0
+  count = ((length(var.push_arns) > 0 || length(var.pull_arns) > 0) && var.enabled)? 1 : 0
   policy     = data.aws_iam_policy_document.this.json
   repository = aws_ecr_repository.this[0].name
 }
