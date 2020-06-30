@@ -18,7 +18,7 @@ This module provides settings:
 
 ## Usage
 
-### Minimal
+### Miminal setup & Unrestricted access to ECR
 
 ```hcl
 module "ecr" {
@@ -28,7 +28,7 @@ module "ecr" {
 }
 ```
 
-### Full
+### Full setup & Restricted access to ECR by IAM arns
 
 ```hcl
 module "ecr" {
