@@ -30,5 +30,7 @@ variable "max_any_image_count" {
   description = "Maximum number of images that you want to retain in repository."
 }
 
-
-
+variable "force_delete" {
+  default = false
+  description = "If true, will delete the repository even if it contains images."
+}

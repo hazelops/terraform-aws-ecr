@@ -1,10 +1,11 @@
 resource "aws_ecr_repository" "this" {
-  count = var.enabled ? 1 : 0
-  name  = var.name
+  count        = var.enabled ? 1 : 0
+  name         = var.name
+  force_delete = var.force_delete
 }
 
 resource "aws_ecr_repository_policy" "this" {
-  count      = ((length(var.push_arns) > 0 || length(var.pull_arns) > 0) && var.enabled)? 1 : 0
+  count      = ((length(var.push_arns) > 0 || length(var.pull_arns) > 0) && var.enabled) ? 1 : 0
   policy     = data.aws_iam_policy_document.this.json
   repository = aws_ecr_repository.this[0].name
 }
@@ -69,6 +70,6 @@ resource "aws_ecr_lifecycle_policy" "default" {
           type = "expire"
         }
       },
-      ]
+    ]
   })
 }
