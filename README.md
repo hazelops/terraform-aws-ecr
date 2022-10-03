@@ -70,9 +70,9 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_ecr_force_delete"></a> [ecr\_force\_delete](#input\_ecr\_force\_delete) | If true, will delete the repository even if it contains images. | `bool` | `false` | no |
 | <a name="input_ecr_policy"></a> [ecr\_policy](#input\_ecr\_policy) | Optional ECR policy to be applied. | `string` | `""` | no |
 | <a name="input_enabled"></a> [enabled](#input\_enabled) | If not enabled, no resources will be created. | `bool` | `true` | no |
+| <a name="input_force_delete"></a> [force\_delete](#input\_force\_delete) | If true, will delete the repository even if it contains images. | `bool` | `false` | no |
 | <a name="input_max_any_image_count"></a> [max\_any\_image\_count](#input\_max\_any\_image\_count) | Maximum number of images that you want to retain in repository. | `number` | `100` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name of the ECR repository. | `any` | n/a | yes |
 | <a name="input_pull_arns"></a> [pull\_arns](#input\_pull\_arns) | List of IAM ARNs that can pull images. | `list(string)` | `[]` | no |

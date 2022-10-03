@@ -1,7 +1,7 @@
 resource "aws_ecr_repository" "this" {
   count        = var.enabled ? 1 : 0
   name         = var.name
-  force_delete = var.ecr_force_delete
+  force_delete = var.force_delete
 }
 
 resource "aws_ecr_repository_policy" "this" {
