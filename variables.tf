@@ -20,7 +20,8 @@ variable "push_arns" {
 }
 
 variable "ecr_policy" {
-  default     = ""
+  default     = []
+  type        = list(string)
   description = "Optional ECR policy to be applied."
 }
 
