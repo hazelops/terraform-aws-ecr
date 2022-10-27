@@ -11,7 +11,7 @@ resource "aws_ecr_repository_policy" "this" {
 }
 
 data "aws_iam_policy_document" "this" {
-  override_json = var.ecr_policy
+  override_policy_documents = var.ecr_policy
 
   dynamic "statement" {
     for_each = length(var.pull_arns) > 0 ? [""] : []
