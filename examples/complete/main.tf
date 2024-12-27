@@ -9,8 +9,4 @@ module "ecr" {
   image_scan_on_push   = true
   encryption_type      = "KMS"
   max_any_image_count  = 5
-  tags = {
-    Name      = "test"
-    Terraform = "true"
-  }
 }
