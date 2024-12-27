@@ -1,7 +1,16 @@
 resource "aws_ecr_repository" "this" {
-  count        = var.enabled ? 1 : 0
-  name         = var.name
-  force_delete = var.force_delete
+  count                = var.enabled ? 1 : 0
+  name                 = var.name
+  force_delete         = var.force_delete
+  image_tag_mutability = var.image_tag_mutability
+  encryption_configuration {
+    encryption_type = var.encryption_type
+    kms_key         = var.kms_key
+  }
+  image_scanning_configuration {
+    scan_on_push = var.image_scan_on_push
+  }
+  tags = var.tags
 }
 
 resource "aws_ecr_repository_policy" "this" {

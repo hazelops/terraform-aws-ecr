@@ -26,12 +26,42 @@ variable "ecr_policy" {
 }
 
 variable "max_any_image_count" {
-  default = 100
-  type = number
+  default     = 100
+  type        = number
   description = "Maximum number of images that you want to retain in repository."
 }
 
 variable "force_delete" {
-  default = false
+  default     = false
   description = "If true, will delete the repository even if it contains images."
 }
+
+variable "image_tag_mutability" {
+  default     = "MUTABLE"
+  description = "The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`."
+}
+
+variable "kms_key" {
+  description = "The ARN of the KMS key to use when encryption_type is `KMS`. If not specified, uses the default AWS managed key for ECR."
+  type        = string
+  default     = null
+}
+
+variable "image_scan_on_push" {
+  description = "Indicates whether images are scanned after being pushed to the repository (`true`) or not scanned (`false`)."
+  type        = bool
+  default     = false
+}
+
+variable "encryption_type" {
+  description = "The encryption type for the repository. Must be one of: `KMS` or `AES256`. Defaults to `AES256.`"
+  type        = string
+  default     = null
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(string)
+  default     = {}
+}
+
